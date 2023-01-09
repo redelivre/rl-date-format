@@ -1,7 +1,7 @@
 <?php
 
 /*
- Plugin Name: RedeLivre Date Format
+ Plugin Name: Rede Livre Date Format
  Version: 0.1
  Plugin URI: https://github.com/redelivre/rl-divi-filterable-portfolio
  Description: Custom date format, for now, this plugin format date like 2 hours ago; 1 minute ago; 1 day ago;
