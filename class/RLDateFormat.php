@@ -23,7 +23,15 @@ class RLDateFormat {
      * Based on https://wpklik.com/wordpress-tutorials/display-time-ago/
      */
     public function post_time_ago($the_time, $format, $post) {
-    	return $this->format_date($the_time, $post);
+    	if($this->is_valid_screen()) return $this->format_date($the_time, $post);
+    	return $the_time;
+    }
+    
+    protected function is_valid_screen() {
+    	if(is_home() OR is_page() OR is_archive() && !is_admin()) {
+    		return true;
+    	}
+    	return false;
     }
     
     public function format_date($date, $post = null) {
@@ -43,8 +51,8 @@ class RLDateFormat {
 	 * @param bool   $gmt        Whether to convert to GMT for time. Default false.
      */
     public function date_i18n($j, $req_format, $i, $gmt) {
-    	
-    	return $this->format_date($i);
+    	if($this->is_valid_screen()) return $this->format_date($i);
+    	return $j;
     }
 }
 
